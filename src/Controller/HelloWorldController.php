@@ -6,13 +6,14 @@ namespace App\Controller;
 
 #use http\Env\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class HelloWorldController
  * @package App\Controller
  */
-class HelloWorldController
+class HelloWorldController extends AbstractController
 {
     /**
      * @return Response
@@ -20,7 +21,7 @@ class HelloWorldController
      * @param string $name User input
      *
      * @Route(
-     *     "/{name}",
+     *     "/hello/{name}",
      *     defaults={"name":"World"},
      *     requirements={"name": "[a-zA-Z]+"},
      *     name="helloworld_index",
@@ -29,7 +30,10 @@ class HelloWorldController
      */
     public function index(string $name): Response
     {
-        return new Response('Hello '.$name.'!');
+        return $this->render(
+            'hello-world/index.html.twig',
+        ['name' => $name]
+        );
     }
 
 }
