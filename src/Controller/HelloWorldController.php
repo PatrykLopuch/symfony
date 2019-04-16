@@ -4,7 +4,7 @@
  */
 namespace App\Controller;
 
-#use http\Env\Response;
+
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,8 +23,8 @@ class HelloWorldController extends AbstractController
      * @Route(
      *     "/hello/{name}",
      *     defaults={"name":"World"},
-     *     requirements={"name": "[a-zA-Z]+"},
-     *     name="helloworld_index",
+     *     requirements={"name": "[a-zA-Z]+"}
+     *
      * )
      *
      */
