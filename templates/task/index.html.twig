@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    List
+{% endblock %}
+
+{% block body %}
+    <h1>list</h1>
+    {% if task is defined and task|length %}
+        <table class="table table-striped">compo
+            <thead>
+            <tr>
+                <th>{{ 'id' }}</th>
+                <th>{{ 'Title' }}</th>
+                <th>{{ 'created' }}</th>
+                <th>{{ 'updated' }}</th>
+                <th scope="col">
+                    Actions
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in task %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.updatedAt|date('Y/m/d') }}</td>
+                    <td>{{ item.createdAt|date('Y/m/d') }}</td>
+                    <td><a href="{{ url('task_view', {"id": item.id}) }}" title="view">view</a></td>
+                    <td></td>
+                </tr>
+
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}

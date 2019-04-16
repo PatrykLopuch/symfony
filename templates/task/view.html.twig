@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    View task
+{% endblock %}
+
+{% block body %}
+    <h1>View task</h1>
+    {% if task is defined and task|length %}
+        <dl>
+            <dt>Title</dt>
+            <dd>{{ task.title }}</dd>
+            <dt>Created</dt>
+            <dd>{{ task.createdAt | date('Y/m/d')}}</dd>
+            <dt>Updated</dt>
+            <dd>{{ task.updatedAt | date('Y/m/d') }}</dd>
+        </dl>
+    {% else %}
+        <p>
+            Item not found.
+        </p>
+    {% endif %}
+{% endblock %}
