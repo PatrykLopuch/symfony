@@ -8,11 +8,11 @@
             </trans-unit>
             <trans-unit id="label.title">
                 <source>label.title</source>
-                <target>Title</target>
+                <target>Tytuł</target>
             </trans-unit>
             <trans-unit id="label.tags">
                 <source>label.tags</source>
-                <target>Tags</target>
+                <target>Tagi</target>
             </trans-unit>
         </body>
     </file>

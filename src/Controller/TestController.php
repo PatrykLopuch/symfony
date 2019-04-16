@@ -36,4 +36,25 @@ class TestController extends AbstractController
             ['data' => $repository->findAll()]
         );
     }
+
+    /**
+     * @param TestRepository $repository
+     * @param $id
+     * @return Response
+     *
+     * @Route (
+     *     "/{id}",
+     *     name="test-view",
+     *     requirements={"id": "[1-9]\d*"}
+     * )
+     */
+
+    public function view(TestRepository $repository, $id): Response
+    {
+        return $this->render(
+            'test/view.html.twig',
+            ['item' => $repository->findById($id)]
+        );
+    }
+
 }

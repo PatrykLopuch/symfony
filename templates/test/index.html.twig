@@ -1,11 +1,35 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
- {{ parent() }} - Hello {{ name|upper }}!
+    List
 {% endblock %}
 
 {% block body %}
-<h1>
-    Hello {{ name|upper }} !
-</h1>
+    <h1>list</h1>
+    {% if data is defined and data|length %}
+        <table class="table table-striped">compo
+            <thead>
+            <tr>
+                <th>{{ 'label.id'|trans }}</th>
+                <th>{{ 'label.title'|trans }}</th>
+                <th>{{ 'label.tags'|trans }}</th>
+                <th scope="col">
+                    Actions
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for item in data %}
+                    <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.title }}</td>
+                        <td>{{ item.tags|join(',') }}</td>
+                        <td><a href="{{ url('test-view', {"id": item.id}) }}" title="view">view</a></td>
+                        <td></td>
+                    </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
 {% endblock %}
